@@ -6,8 +6,4 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Actor.create(first_name: "Chris", last_name: "Pine", known_for: "Star Trek, Wonder Woman")
-Actor.create(first_name: "Ben", last_name: "Afflek", known_for: "BatMan v SuperMan")
-Actor.create(first_name: "Brad", last_name: "Pitt", known_for: "Fight Club")
-Actor.create(first_name: "Jennifer", last_name: "Anniston", known_for: "Friends")
-Actor.create(first_name: "Margot", last_name: "Robbie", known_for: "The Wold Of Wall Street")
+Actor.create(first_name: FFaker::Name.first_name, last_name: FFaker::Name.last_name, known_for: FFaker::Movie.title)
