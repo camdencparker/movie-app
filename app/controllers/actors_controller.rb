@@ -40,4 +40,8 @@ class ActorsController < ApplicationController
     all.destroy_all
   end
 
+  def 
+    
+  end
+
 end

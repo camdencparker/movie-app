@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get "/deleteactor/:name" => "actors#delete_actor"
   get "/update/:name/:description" => "actors#update_known_for"
   get "/deleteall" => "actors#delete_all"
+
+  get "/movies" => "movies#index" 
 end
