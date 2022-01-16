@@ -1,1 +1,14 @@
-GET 
+# POST "http://localhost3000/findbyfirstname"
+# Content-Type: application/json
+
+# {
+#   "name": "Brian"
+# }
+
+# ###
+
+# GET "http://localhost3000/findbyfirstname?name=Chris" 
+
+# ###
+
+# GET "http://localhost3000/actors/Chris"
