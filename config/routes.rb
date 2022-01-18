@@ -12,9 +12,30 @@ Rails.application.routes.draw do
   # get "/update/:name/:description" => "actors#update_known_for"
   # get "/deleteall" => "actors#delete_all"
 
-  get "/actors/:id" => "actors#show"
+  
 
   get "/movies" => "movies#index" 
 
-  get "/movies" => "movies#show"
+  post "/movies" => "movies#create"
+
+  get "/movies/:id" => "movies#show"
+
+  put "/movies/:id" => "movies#update"
+
+  delete "/movies/:id" => "movies#delete"
+
+
+  get "/actors" => "actors#index"
+
+  post "/actors" => "actors#create"
+
+  get "/actors/:id" => "actors#show"
+
+  put "/actors/:id" => "actors#update"
+
+  delete "actors/:id" => "actors#delete"
+
+
+
+  
 end

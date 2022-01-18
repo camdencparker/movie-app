@@ -4,9 +4,36 @@ class MoviesController < ApplicationController
     render json: movies.as_json
   end
 
+  def create
+    film = Movie.new(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      known_for: params[:known_for]
+    )
+    film.save
+    render json: film
+  end
+  
   def show
-    movie = Movie.find(params[:id])
-    render json: movie
+    id = params[:id]
+    film = Movie.find_by(id: id)
+    render json: film
+  end
+  
+  def update
+    film = Movie.find(params[:id])
+    film.first_name = params[:first_name]
+    film.last_name = params[:last_name]
+    film.known_for = params[:known_for]
+    film.save
+    render json: film
   end
 
+  def delete
+    film = Movie.find(params[:id])
+    film.destroy
+    render json: {message: "Desired film has been deleted from the database"}
+  end
+
+  
 end
