@@ -8,7 +8,9 @@ class MoviesController < ApplicationController
     film = Movie.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
-      known_for: params[:known_for]
+      known_for: params[:known_for],
+      director: params[:director],
+      english: params[:english]
     )
     film.save
     render json: film
@@ -22,9 +24,11 @@ class MoviesController < ApplicationController
   
   def update
     film = Movie.find(params[:id])
-    film.first_name = params[:first_name]
-    film.last_name = params[:last_name]
-    film.known_for = params[:known_for]
+    film.first_name = params[:first_name] || film.first_name
+    film.last_name = params[:last_name] || film.last_name
+    film.known_for = params[:known_for] || film.known_for
+    film.director = params[:director] || film.director
+    film.english = params[:english] || film.english 
     film.save
     render json: film
   end

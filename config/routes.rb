@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get "/movies/:id" => "movies#show"
 
-  put "/movies/:id" => "movies#update"
+  patch "/movies/:id" => "movies#update"
 
   delete "/movies/:id" => "movies#delete"
 
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   get "/actors/:id" => "actors#show"
 
-  put "/actors/:id" => "actors#update"
+  patch "/actors/:id" => "actors#update"
 
   delete "actors/:id" => "actors#delete"
 
