@@ -12,8 +12,11 @@ class ActorsController < ApplicationController
       gender: params[:gender],
       age: params[:age]
     )
-    actor.save
-    render json: actor
+    if actor.save
+      render json: actor
+    else
+      render json: {errors: actor.errors.full_messages}
+    end
   end
   
   def show
@@ -29,8 +32,11 @@ class ActorsController < ApplicationController
     actor.known_for = params[:known_for]
     actor.gender = params[:gender]
     actor.age = params[:age]
-    actor.save
-    render json: actor
+    if actor.save
+      render json: actor
+    else
+      render json: {errors: actor.errors.full_messages}
+    end
   end
 
   def delete

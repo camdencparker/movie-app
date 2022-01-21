@@ -1,41 +1,51 @@
 class MoviesController < ApplicationController
+  validates :director, presence: true
+  validates :year, numericality: {greater_than: 1800}
+  validates :title, uniqueness: true
+  validates :plot, presence: true
+
   def index
     movies = Movie.all
-    render json: movies.as_json
+    render json: movies
   end
 
   def create
-    film = Movie.new(
-      first_name: params[:first_name],
-      last_name: params[:last_name],
-      known_for: params[:known_for],
+    movie = Movie.new(
+      title: params[:title],
+      year: params[:year],
+      plot: params[:plot],
       director: params[:director],
       english: params[:english]
     )
-    film.save
-    render json: film
+    if movie.save
+      render json: movie
+    else
+      render json: {errors: movie.errors.full_messages}
+    end
   end
-  
+
   def show
-    id = params[:id]
-    film = Movie.find_by(id: id)
-    render json: film
+    movie = Movie.find(params[:id])
+    render json: movie
   end
-  
+
   def update
-    film = Movie.find(params[:id])
-    film.first_name = params[:first_name] || film.first_name
-    film.last_name = params[:last_name] || film.last_name
-    film.known_for = params[:known_for] || film.known_for
-    film.director = params[:director] || film.director
-    film.english = params[:english] || film.english 
-    film.save
-    render json: film
+    movie = Movie.find(params[:id])
+    movie.title = params[:title] || movie.title,
+    movie.year =  params[:year] || movie.year,
+    movie.plot = params[:plot] || movie.plot
+    movie.director = params[:director] || movie.director
+    movie.english = params[:english] || movie.english
+    if movie.save
+      render json: movie
+    else
+      render json: {errors: movie.errors.full_messages}
+    end
   end
 
   def delete
-    film = Movie.find(params[:id])
-    film.destroy
+    movie = Movie.find(params[:id])
+    movie.destroy
     render json: {message: "Desired film has been deleted from the database"}
   end
 

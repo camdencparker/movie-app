@@ -1,14 +1,17 @@
-# POST "http://localhost3000/findbyfirstname"
-# Content-Type: application/json
+# INDEX
 
-# {
-#   "name": "Brian"
-# }
+GET http://localhost:3000/movies"
 
-# ###
+###
 
-# GET "http://localhost3000/findbyfirstname?name=Chris" 
+# CREATE
 
-# ###
+POST http://localhost/movies"
+Content-Type: application/json
 
-# GET "http://localhost3000/actors/Chris"
+{
+  "title": "THE TWO TOWERS",
+  "year": "1998",
+  "plot": "Two towers attempt to take over middle earth",
+  "english": true
+}
