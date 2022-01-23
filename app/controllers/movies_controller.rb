@@ -1,12 +1,18 @@
 class MoviesController < ApplicationController
-  validates :director, presence: true
-  validates :year, numericality: {greater_than: 1800}
-  validates :title, uniqueness: true
-  validates :plot, presence: true
+  # validates :director, presence: true
+  #validates :year, numericality: {greater_than: 1800}
+  #validates :title, uniqueness: true
+  #validates :plot, presence: true
 
   def index
     movies = Movie.all
-    render json: movies
+    english = []
+    movies.each do |movie|
+      if movie.english == true;
+        english.push(movie)
+      end
+    end
+    render json: english
   end
 
   def create
