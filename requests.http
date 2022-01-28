@@ -1,17 +1,48 @@
-# INDEX
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NDM0Njc1MDZ9.uO5McYF-cmmoJWIkD-hcMQKhCWSW6si5UDlEz64u3r4
+
+# Update Movie
+POST http://localhost:3000/movies
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
+
+{
+  "title": "Soft Goats",
+  "year": 2001,
+  "plot": "THese goats grew up in the burbs not the hood",
+  "director": "Billy Bob Joe",
+  "english": true
+}
+
+
+
+###
+
+# INDEX Movies
 
 GET http://localhost:3000/movies"
 
 ###
 
-# CREATE
+# CREATE Users
 
-POST http://localhost/movies"
+POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "title": "THE TWO TOWERS",
-  "year": "1998",
-  "plot": "Two towers attempt to take over middle earth",
-  "english": true
+  "name": "Chance",
+  "email": "chance@gmail.com",
+  "password": "password",
+  "admin": true
 }
+
+
+### 
+# LOGIN Sessions
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "chance@gmail.com",
+  "password": "password"
+}
+

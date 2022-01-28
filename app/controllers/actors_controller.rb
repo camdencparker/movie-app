@@ -1,4 +1,5 @@
 class ActorsController < ApplicationController
+  before_action: authenticate_admin, exept: [:index, :show]
   def index
     list = Actor.all
     list = Actor.order(age: :desc)
