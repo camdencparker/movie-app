@@ -7,13 +7,13 @@ class MoviesController < ApplicationController
 
   def index
     movies = Movie.all
-    english = []
-    movies.each do |movie|
-      if movie.english == true;
-        english.push(movie)
-      end
-    end
-    render json: english
+    # english = []
+    # movies.each do |movie|
+    #   if movie.english == true;
+    #     english.push(movie)
+    #   end
+    # end
+    render json: movies
   end
 
   def create
