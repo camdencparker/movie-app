@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 
 
 
+  post "/moviegenre" => "movie_genres#create"
+
 
 
   
