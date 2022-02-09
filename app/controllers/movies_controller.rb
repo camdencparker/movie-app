@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   #validates :year, numericality: {greater_than: 1800}
   #validates :title, uniqueness: true
   #validates :plot, presence: true
-  before_action :authenticate_admin, except: [:index, :show]
+  # before_action :authenticate_admin, except: [:index, :show]
 
   def index
     movies = Movie.all
